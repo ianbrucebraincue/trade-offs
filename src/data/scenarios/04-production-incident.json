@@ -1,0 +1,150 @@
+{
+  "id": "production-incident",
+  "title": "Production Incident",
+  "channelName": "#incidents",
+  "openingMessages": [
+    {
+      "id": "pi-1",
+      "from": "engineer",
+      "text": "🚨 Production is down. Dashboard returning 500s for all enterprise accounts.",
+      "delayMs": 0
+    },
+    {
+      "id": "pi-2",
+      "from": "pm",
+      "text": "How long has this been down??",
+      "delayMs": 900
+    },
+    {
+      "id": "pi-3",
+      "from": "engineer",
+      "text": "About 20 minutes. Looks like the SSO integration is causing a database deadlock.",
+      "delayMs": 1500
+    },
+    {
+      "id": "pi-4",
+      "from": "ceo",
+      "text": "@channel I'm getting calls from enterprise clients. What is happening right now.",
+      "delayMs": 1200
+    },
+    {
+      "id": "pi-5",
+      "from": "engineer",
+      "text": "The auth layer changes from last sprint made this significantly worse than it needed to be. Just so everyone knows.",
+      "delayMs": 1800,
+      "condition": {
+        "metric": "techDebt",
+        "operator": "gte",
+        "threshold": 70
+      }
+    },
+    {
+      "id": "pi-6",
+      "from": "designer",
+      "text": "I'm just here. I don't know what any of this means. Is there anything I can do?",
+      "delayMs": 2000,
+      "condition": {
+        "metric": "techDebt",
+        "operator": "gte",
+        "threshold": 70
+      }
+    }
+  ],
+  "choices": [
+    {
+      "id": "pi-hotfix",
+      "label": "Hotfix it, ship now",
+      "subtext": "Push a fix directly to production. Fast.",
+      "tagline": "Put out the fire. Left some embers.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 10, "hidden": false },
+        { "metric": "techDebt", "delta": 15, "hidden": true },
+        { "metric": "maintainability", "delta": -15, "hidden": true }
+      ],
+      "followUpMessages": [
+        {
+          "id": "pi-hot-1",
+          "from": "engineer",
+          "text": "Hotfix is live. We're back up. 28 minutes total downtime.",
+          "delayMs": 1000
+        },
+        {
+          "id": "pi-hot-2",
+          "from": "pm",
+          "text": "Status page updated. Notifying clients now.",
+          "delayMs": 1500
+        },
+        {
+          "id": "pi-hot-3",
+          "from": "engineer",
+          "text": "I left a comment in the code. It says 'DO NOT TOUCH THIS'. Please respect that.",
+          "delayMs": 2200,
+          "reactions": ["😅"]
+        }
+      ]
+    },
+    {
+      "id": "pi-rollback",
+      "label": "Roll back",
+      "subtext": "Revert to the last stable build.",
+      "tagline": "Did the boring right thing.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": -10, "hidden": false },
+        { "metric": "techDebt", "delta": -5, "hidden": false },
+        { "metric": "maintainability", "delta": 5, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "pi-roll-1",
+          "from": "engineer",
+          "text": "Rollback complete. Enterprise accounts are restored.",
+          "delayMs": 1200
+        },
+        {
+          "id": "pi-roll-2",
+          "from": "ceo",
+          "text": "We lost 30 minutes. Enterprise clients are going to notice the SSO regression.",
+          "delayMs": 2000
+        },
+        {
+          "id": "pi-roll-3",
+          "from": "engineer",
+          "text": "The alternative was staying down longer. We made the right call.",
+          "delayMs": 2000
+        }
+      ]
+    },
+    {
+      "id": "pi-fix-properly",
+      "label": "Fix it and communicate",
+      "subtext": "Keep clients updated while fixing the root cause.",
+      "tagline": "Fixed it. Didn't hide it.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 5, "hidden": false },
+        { "metric": "techDebt", "delta": -10, "hidden": false },
+        { "metric": "maintainability", "delta": 10, "hidden": false },
+        { "metric": "cost", "delta": 5, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "pi-fix-1",
+          "from": "pm",
+          "text": "Status page updated with timeline. Clients are getting proactive comms.",
+          "delayMs": 1000
+        },
+        {
+          "id": "pi-fix-2",
+          "from": "engineer",
+          "text": "Root cause patched. 45-minute outage but this deadlock pattern is gone permanently.",
+          "delayMs": 2500
+        },
+        {
+          "id": "pi-fix-3",
+          "from": "ceo",
+          "text": "Enterprise clients actually appreciated the transparency. That's... not what I expected.",
+          "delayMs": 2200
+        }
+      ]
+    }
+  ]
+}

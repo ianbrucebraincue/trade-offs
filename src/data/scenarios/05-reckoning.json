@@ -1,0 +1,139 @@
+{
+  "id": "reckoning",
+  "title": "Reckoning",
+  "channelName": "#team",
+  "openingMessages": [
+    {
+      "id": "re-1",
+      "from": "engineer",
+      "text": "I need to be honest with the team. I'm exhausted. I've been carrying the weight of this codebase for months and it's not sustainable.",
+      "delayMs": 0
+    },
+    {
+      "id": "re-2",
+      "from": "designer",
+      "text": "Same. Every feature feels like we're building on sand. I don't know what's going to break next.",
+      "delayMs": 2500
+    },
+    {
+      "id": "re-3",
+      "from": "pm",
+      "text": "Retention numbers are down. Users love the idea but the product keeps failing them.",
+      "delayMs": 2000
+    },
+    {
+      "id": "re-4",
+      "from": "engineer",
+      "text": "We need to decide something real here. Do we keep sprinting, or do we actually fix the foundation?",
+      "delayMs": 2000
+    },
+    {
+      "id": "re-5",
+      "from": "engineer",
+      "text": "And I need to be clear: if we choose to keep sprinting, I'm not sure I'll still be here in three months.",
+      "delayMs": 2200,
+      "condition": {
+        "metric": "maintainability",
+        "operator": "lte",
+        "threshold": 30
+      }
+    }
+  ],
+  "choices": [
+    {
+      "id": "re-keep-shipping",
+      "label": "Keep shipping features",
+      "subtext": "Users need progress, not internal refactors.",
+      "tagline": "Kept moving. Stopped looking down.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 10, "hidden": false },
+        { "metric": "techDebt", "delta": 25, "hidden": true },
+        { "metric": "maintainability", "delta": -25, "hidden": true }
+      ],
+      "followUpMessages": [
+        {
+          "id": "re-ship-1",
+          "from": "pm",
+          "text": "Okay. Feature roadmap continues.",
+          "delayMs": 1000
+        },
+        {
+          "id": "re-ship-2",
+          "from": "engineer",
+          "text": "Noted.",
+          "delayMs": 3000
+        },
+        {
+          "id": "re-ship-3",
+          "from": "designer",
+          "text": "...",
+          "delayMs": 2500
+        }
+      ]
+    },
+    {
+      "id": "re-full-rewrite",
+      "label": "Full rewrite",
+      "subtext": "Start fresh. Get it right this time.",
+      "tagline": "Burned it down. Built on ashes.",
+      "metricDeltas": [
+        { "metric": "techDebt", "delta": -40, "hidden": false },
+        { "metric": "maintainability", "delta": 40, "hidden": false },
+        { "metric": "userSatisfaction", "delta": -30, "hidden": false },
+        { "metric": "cost", "delta": 30, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "re-rewrite-1",
+          "from": "engineer",
+          "text": "Finally. I'll start the architecture document today.",
+          "delayMs": 1500
+        },
+        {
+          "id": "re-rewrite-2",
+          "from": "pm",
+          "text": "This sets us back months. The board is not going to like this conversation.",
+          "delayMs": 2200
+        },
+        {
+          "id": "re-rewrite-3",
+          "from": "ceo",
+          "text": "What do you mean no new features for three months.",
+          "delayMs": 2500
+        }
+      ]
+    },
+    {
+      "id": "re-debt-sprint",
+      "label": "Dedicated tech debt sprint",
+      "subtext": "Pause features. Stabilize the system first.",
+      "tagline": "Paused. Breathed. Fixed something real.",
+      "metricDeltas": [
+        { "metric": "techDebt", "delta": -20, "hidden": false },
+        { "metric": "maintainability", "delta": 20, "hidden": false },
+        { "metric": "userSatisfaction", "delta": -10, "hidden": false },
+        { "metric": "cost", "delta": 10, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "re-debt-1",
+          "from": "engineer",
+          "text": "One sprint to fix the worst of it. I'll take the lead.",
+          "delayMs": 1200
+        },
+        {
+          "id": "re-debt-2",
+          "from": "pm",
+          "text": "I'll explain it to stakeholders. They won't like it. But I'll try.",
+          "delayMs": 2000
+        },
+        {
+          "id": "re-debt-3",
+          "from": "designer",
+          "text": "This is the first sane decision we've made in a while. 😌",
+          "delayMs": 1800
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "themes": [
+    {
+      "id": "speed-demon",
+      "conditions": [
+        { "metric": "techDebt", "operator": "gte", "threshold": 70 },
+        { "metric": "userSatisfaction", "operator": "gte", "threshold": 60 }
+      ],
+      "headline": "You built a fast product… that your team now hates maintaining.",
+      "body": "Users love the experience. Engineers have started updating their LinkedIn profiles. The codebase is technically running. For now."
+    },
+    {
+      "id": "house-of-cards",
+      "conditions": [
+        { "metric": "techDebt", "operator": "gte", "threshold": 75 },
+        { "metric": "maintainability", "operator": "lte", "threshold": 30 }
+      ],
+      "headline": "Users loved it… until it collapsed under scale.",
+      "body": "The product worked, in the way that things work before they don't. The system was always one bad deploy away from this. You just didn't look down."
+    },
+    {
+      "id": "perfectionist",
+      "conditions": [
+        { "metric": "techDebt", "operator": "lte", "threshold": 30 },
+        { "metric": "userSatisfaction", "operator": "lte", "threshold": 35 }
+      ],
+      "headline": "Clean code. No users.",
+      "body": "The architecture is beautiful. The codebase is a gift to whoever inherits it. Nobody is using it. There's a difference between building well and building something people need."
+    },
+    {
+      "id": "overcorrected",
+      "conditions": [
+        { "metric": "maintainability", "operator": "gte", "threshold": 70 },
+        { "metric": "userSatisfaction", "operator": "lte", "threshold": 35 }
+      ],
+      "headline": "You managed risk well… but never shipped anything meaningful.",
+      "body": "The system is stable. Extensible, even. No one uses it. There's a difference between building for the long term and never arriving at the present."
+    },
+    {
+      "id": "slow-burn",
+      "conditions": [
+        { "metric": "techDebt", "operator": "gte", "threshold": 55 },
+        { "metric": "maintainability", "operator": "lte", "threshold": 40 },
+        { "metric": "userSatisfaction", "operator": "gte", "threshold": 50 }
+      ],
+      "headline": "Users are happy. Engineers are not.",
+      "body": "The metrics look fine from the outside. Inside, everyone knows the truth. The team is tired. The system is fragile. You got away with it this time."
+    },
+    {
+      "id": "graveyard",
+      "conditions": [
+        { "metric": "userSatisfaction", "operator": "lte", "threshold": 25 }
+      ],
+      "headline": "Nobody is using it.",
+      "body": "You made technically defensible choices at every turn. Users didn't care about the architecture. They just stopped coming back."
+    },
+    {
+      "id": "pragmatist",
+      "conditions": [
+        { "metric": "techDebt", "operator": "lte", "threshold": 60 },
+        { "metric": "userSatisfaction", "operator": "gte", "threshold": 45 },
+        { "metric": "maintainability", "operator": "gte", "threshold": 45 }
+      ],
+      "headline": "A workable product. The team is tired but intact.",
+      "body": "Not perfect. Not broken. You made real trade-offs and mostly got them right. The engineers are still here. That counts for something."
+    },
+    {
+      "id": "default",
+      "conditions": [],
+      "headline": "You built a product. It exists.",
+      "body": "The trade-offs are yours to live with. Every decision made sense at the time. That's the engineering experience."
+    }
+  ],
+  "metricBands": [
+    { "metricKey": "performance", "label": "Blazing Fast", "min": 70, "max": 100 },
+    { "metricKey": "performance", "label": "Good Enough", "min": 40, "max": 69 },
+    { "metricKey": "performance", "label": "Users Are Noticing", "min": 0, "max": 39 },
+
+    { "metricKey": "cost", "label": "Lean Budget", "min": 0, "max": 40 },
+    { "metricKey": "cost", "label": "On Track", "min": 41, "max": 65 },
+    { "metricKey": "cost", "label": "Over Budget", "min": 66, "max": 100 },
+
+    { "metricKey": "maintainability", "label": "Engineers Love It", "min": 70, "max": 100 },
+    { "metricKey": "maintainability", "label": "Manageable", "min": 40, "max": 69 },
+    { "metricKey": "maintainability", "label": "Ticking Time Bomb", "min": 0, "max": 39 },
+
+    { "metricKey": "userSatisfaction", "label": "Users Love It", "min": 70, "max": 100 },
+    { "metricKey": "userSatisfaction", "label": "Getting There", "min": 40, "max": 69 },
+    { "metricKey": "userSatisfaction", "label": "Users Are Churning", "min": 0, "max": 39 },
+
+    { "metricKey": "techDebt", "label": "Clean Slate", "min": 0, "max": 35 },
+    { "metricKey": "techDebt", "label": "Manageable Debt", "min": 36, "max": 60 },
+    { "metricKey": "techDebt", "label": "Crushing Debt", "min": 61, "max": 100 }
+  ]
+}

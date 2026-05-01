@@ -1,0 +1,130 @@
+{
+  "id": "stakeholder-pressure",
+  "title": "Stakeholder Pressure",
+  "channelName": "#general",
+  "openingMessages": [
+    {
+      "id": "sp-1",
+      "from": "ceo",
+      "text": "I had dinner with our biggest enterprise prospect last night. They want SSO, audit logs, and role-based permissions. Q3.",
+      "delayMs": 0
+    },
+    {
+      "id": "sp-2",
+      "from": "pm",
+      "text": "Q3 is six weeks away. We're still working through the performance backlog.",
+      "delayMs": 2000
+    },
+    {
+      "id": "sp-3",
+      "from": "engineer",
+      "text": "Those are non-trivial features. SSO alone is a multi-week project, and that's before we account for the current state of the codebase.",
+      "delayMs": 2000
+    },
+    {
+      "id": "sp-4",
+      "from": "ceo",
+      "text": "I don't want to hear about debt. I need to hear about dates.",
+      "delayMs": 1200
+    }
+  ],
+  "choices": [
+    {
+      "id": "sp-yes-all",
+      "label": "We'll make it happen",
+      "subtext": "Yes to everything. Full speed ahead.",
+      "tagline": "Made the promise. Started the clock.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 15, "hidden": false },
+        { "metric": "techDebt", "delta": 20, "hidden": true },
+        { "metric": "maintainability", "delta": -20, "hidden": true },
+        { "metric": "cost", "delta": 15, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "sp-yes-1",
+          "from": "ceo",
+          "text": "That's what I like to hear. 🔥 I'll let the prospect know.",
+          "delayMs": 900
+        },
+        {
+          "id": "sp-yes-2",
+          "from": "engineer",
+          "text": "...I'm going to need help. And coffee. A lot of coffee.",
+          "delayMs": 2500
+        },
+        {
+          "id": "sp-yes-3",
+          "from": "pm",
+          "text": "I'll update the roadmap. And quietly adjust my own expectations.",
+          "delayMs": 1800
+        }
+      ]
+    },
+    {
+      "id": "sp-negotiate",
+      "label": "Let's talk about scope",
+      "subtext": "We can do some of it. Let's prioritize.",
+      "tagline": "Held the line. Sort of.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": -5, "hidden": false },
+        { "metric": "techDebt", "delta": -5, "hidden": false },
+        { "metric": "maintainability", "delta": 10, "hidden": false },
+        { "metric": "cost", "delta": -5, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "sp-neg-1",
+          "from": "ceo",
+          "text": "I need all three. Not two.",
+          "delayMs": 1500
+        },
+        {
+          "id": "sp-neg-2",
+          "from": "pm",
+          "text": "We can deliver SSO and audit logs in Q3. Role permissions is a Q4 item — and it'll be done properly.",
+          "delayMs": 2000
+        },
+        {
+          "id": "sp-neg-3",
+          "from": "ceo",
+          "text": "Fine. But I'm holding you to Q3 for the first two. The prospect is watching.",
+          "delayMs": 2200
+        }
+      ]
+    },
+    {
+      "id": "sp-shortcuts",
+      "label": "Fast-track with shortcuts",
+      "subtext": "We'll build it fast. Some compromises required.",
+      "tagline": "Said yes and meant maybe.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 10, "hidden": false },
+        { "metric": "techDebt", "delta": 30, "hidden": true },
+        { "metric": "maintainability", "delta": -25, "hidden": true },
+        { "metric": "cost", "delta": 5, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "sp-short-1",
+          "from": "ceo",
+          "text": "Excellent. I'll announce it to the prospect.",
+          "delayMs": 800
+        },
+        {
+          "id": "sp-short-2",
+          "from": "engineer",
+          "text": "We'll hardcode some of the permission logic. It's... fine for now. I think.",
+          "delayMs": 2800,
+          "reactions": ["😬"]
+        },
+        {
+          "id": "sp-short-3",
+          "from": "pm",
+          "text": "For now. 😬",
+          "delayMs": 1500
+        }
+      ]
+    }
+  ]
+}

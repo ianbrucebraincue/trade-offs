@@ -1,0 +1,130 @@
+{
+  "id": "growth-pains",
+  "title": "Growth Pains",
+  "channelName": "#engineering",
+  "openingMessages": [
+    {
+      "id": "gp-1",
+      "from": "pm",
+      "text": "Big news — we just hit 10,000 users! 🎉",
+      "delayMs": 0
+    },
+    {
+      "id": "gp-2",
+      "from": "engineer",
+      "text": "...and P95 latency is at 8 seconds. The shortcuts from the last sprint are showing. Every dashboard load is hitting the database 40+ times.",
+      "delayMs": 2200
+    },
+    {
+      "id": "gp-3",
+      "from": "pm",
+      "text": "Users are noticing. Support tickets are up 40% this week.",
+      "delayMs": 1800
+    },
+    {
+      "id": "gp-4",
+      "from": "engineer",
+      "text": "We need to decide how we're fixing this. It's not going to resolve itself.",
+      "delayMs": 1500
+    }
+  ],
+  "choices": [
+    {
+      "id": "gp-cache",
+      "label": "Slap a cache on it",
+      "subtext": "Quick Redis cache. Ship by tomorrow.",
+      "tagline": "Fixed the symptom. Deferred the diagnosis.",
+      "metricDeltas": [
+        { "metric": "performance", "delta": 20, "hidden": false },
+        { "metric": "cost", "delta": -10, "hidden": false },
+        { "metric": "techDebt", "delta": 15, "hidden": true },
+        { "metric": "maintainability", "delta": -10, "hidden": true }
+      ],
+      "followUpMessages": [
+        {
+          "id": "gp-cache-1",
+          "from": "engineer",
+          "text": "Cache is live. Latency is down to 200ms. 🚀",
+          "delayMs": 1200
+        },
+        {
+          "id": "gp-cache-2",
+          "from": "pm",
+          "text": "Users are happier. Support tickets are dropping. Nice work.",
+          "delayMs": 1800
+        },
+        {
+          "id": "gp-cache-3",
+          "from": "engineer",
+          "text": "There are some edge cases with cache invalidation. I documented them. In a comment. In a file nobody opens.",
+          "delayMs": 2500,
+          "reactions": ["😬"]
+        }
+      ]
+    },
+    {
+      "id": "gp-rewrite",
+      "label": "Rewrite the data layer",
+      "subtext": "Fix the root cause. Properly.",
+      "tagline": "Took the painful path. Built something real.",
+      "metricDeltas": [
+        { "metric": "performance", "delta": 30, "hidden": false },
+        { "metric": "techDebt", "delta": -20, "hidden": false },
+        { "metric": "maintainability", "delta": 20, "hidden": false },
+        { "metric": "userSatisfaction", "delta": -10, "hidden": false },
+        { "metric": "cost", "delta": 10, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "gp-rewrite-1",
+          "from": "engineer",
+          "text": "I'll need two weeks. The schema changes are significant.",
+          "delayMs": 1500
+        },
+        {
+          "id": "gp-rewrite-2",
+          "from": "pm",
+          "text": "Two weeks of slow dashboards. This is going to be painful for retention.",
+          "delayMs": 2000
+        },
+        {
+          "id": "gp-rewrite-3",
+          "from": "engineer",
+          "text": "The alternative is two years of slow dashboards.",
+          "delayMs": 2200
+        }
+      ]
+    },
+    {
+      "id": "gp-optimize",
+      "label": "Optimize + rate limit",
+      "subtext": "Quick wins on queries. Add limits to protect the system.",
+      "tagline": "Bought time. Not fixed.",
+      "metricDeltas": [
+        { "metric": "performance", "delta": 15, "hidden": false },
+        { "metric": "userSatisfaction", "delta": 5, "hidden": false },
+        { "metric": "techDebt", "delta": 5, "hidden": true }
+      ],
+      "followUpMessages": [
+        {
+          "id": "gp-opt-1",
+          "from": "engineer",
+          "text": "Optimized the worst offenders. We're at 1.8 seconds P95.",
+          "delayMs": 1200
+        },
+        {
+          "id": "gp-opt-2",
+          "from": "pm",
+          "text": "Better. Not great. But better.",
+          "delayMs": 1500
+        },
+        {
+          "id": "gp-opt-3",
+          "from": "engineer",
+          "text": "Rate limits are annoying power users though. We'll need to revisit this properly at some point.",
+          "delayMs": 2000
+        }
+      ]
+    }
+  ]
+}

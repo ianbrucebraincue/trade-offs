@@ -1,0 +1,115 @@
+/* Slack-inspired theme variables */
+:root {
+  /* Sidebar — Slack's classic aubergine */
+  --sidebar-bg: #3f0e40;
+  --sidebar-hover: #350d36;
+  --sidebar-active: #1164a3;
+  --sidebar-text: #cfc3cf;
+  --sidebar-text-muted: #9e8d9e;
+  --sidebar-text-active: #ffffff;
+  --sidebar-badge: #cd2553;
+  --sidebar-width: 240px;
+
+  /* Chat area */
+  --chat-bg: #ffffff;
+  --chat-border: #e8e8e8;
+  --chat-header-bg: #ffffff;
+  --chat-header-border: #e8e8e8;
+
+  /* Message bubbles */
+  --msg-name-pm: #2eb67d;
+  --msg-name-engineer: #4a154b;
+  --msg-name-designer: #e01e5a;
+  --msg-name-ceo: #ecb22e;
+  --msg-name-system: #868686;
+
+  --avatar-pm: #2eb67d;
+  --avatar-engineer: #4a154b;
+  --avatar-designer: #e01e5a;
+  --avatar-ceo: #ecb22e;
+  --avatar-player: #1164a3;
+
+  /* Player choice bubble */
+  --player-choice-bg: #1164a3;
+  --player-choice-text: #ffffff;
+
+  /* Divider */
+  --divider-text: #868686;
+  --divider-line: #e8e8e8;
+
+  /* Typing indicator */
+  --typing-dot: #868686;
+
+  /* Choice panel */
+  --choice-bg: #f8f8f8;
+  --choice-border: #e8e8e8;
+  --choice-hover-bg: #f0f7ff;
+  --choice-hover-border: #1164a3;
+  --choice-text: #1d1c1d;
+  --choice-subtext: #868686;
+
+  /* Metrics HUD */
+  --metric-bar-bg: #e8e8e8;
+  --metric-bar-fill: #1164a3;
+  --metric-bar-fill-good: #2eb67d;
+  --metric-bar-fill-bad: #e01e5a;
+  --metric-bar-fill-warn: #ecb22e;
+
+  /* Outcome screen */
+  --outcome-bg: #1d1c1d;
+  --outcome-text: #ffffff;
+  --outcome-text-muted: #ababad;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #app {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.46668;
+  color: var(--chat-text, #1d1c1d);
+  background: var(--chat-bg);
+}
+
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}

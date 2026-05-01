@@ -1,0 +1,129 @@
+{
+  "id": "quick-win",
+  "title": "Quick Win",
+  "channelName": "#sprint-planning",
+  "openingMessages": [
+    {
+      "id": "qw-1",
+      "from": "pm",
+      "text": "Morning team! Stakeholders want a shippable dashboard by Friday. We've been scoping it for weeks — can we make it happen?",
+      "delayMs": 0
+    },
+    {
+      "id": "qw-2",
+      "from": "engineer",
+      "text": "It's doable... but the data layer isn't ready. We'd be hardcoding some values and skipping test coverage.",
+      "delayMs": 2000
+    },
+    {
+      "id": "qw-3",
+      "from": "designer",
+      "text": "I'm still about 40% through the designs. Some screens aren't finished. 😬",
+      "delayMs": 1800
+    },
+    {
+      "id": "qw-4",
+      "from": "pm",
+      "text": "CEO is presenting to investors Friday morning. We need something to show. What are we doing?",
+      "delayMs": 1500
+    }
+  ],
+  "choices": [
+    {
+      "id": "qw-ship-fast",
+      "label": "Ship it Friday",
+      "subtext": "We'll clean it up in the next sprint.",
+      "tagline": "Shipped fast. Regretted slowly.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 10, "hidden": false },
+        { "metric": "techDebt", "delta": 25, "hidden": true },
+        { "metric": "maintainability", "delta": -20, "hidden": true },
+        { "metric": "performance", "delta": -10, "hidden": true }
+      ],
+      "followUpMessages": [
+        {
+          "id": "qw-fast-1",
+          "from": "pm",
+          "text": "Love it. Stakeholders are going to be thrilled. 🔥",
+          "delayMs": 900
+        },
+        {
+          "id": "qw-fast-2",
+          "from": "engineer",
+          "text": "Alright. I'll open a ticket for the cleanup work. ...There are going to be a lot of tickets.",
+          "delayMs": 2200,
+          "reactions": ["😬"]
+        },
+        {
+          "id": "qw-fast-3",
+          "from": "designer",
+          "text": "Shipping what I have. Fingers crossed the unfinished screens don't come up in the demo. 🤞",
+          "delayMs": 1800
+        }
+      ]
+    },
+    {
+      "id": "qw-do-properly",
+      "label": "Push to next sprint",
+      "subtext": "Do it properly. No shortcuts.",
+      "tagline": "Said no when it mattered. Paid a social cost.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": -15, "hidden": false },
+        { "metric": "techDebt", "delta": -5, "hidden": true },
+        { "metric": "maintainability", "delta": 20, "hidden": false },
+        { "metric": "performance", "delta": 10, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "qw-proper-1",
+          "from": "pm",
+          "text": "The investors won't be happy.",
+          "delayMs": 1200
+        },
+        {
+          "id": "qw-proper-2",
+          "from": "engineer",
+          "text": "Better than shipping something we'll be untangling for the next six months.",
+          "delayMs": 1800
+        },
+        {
+          "id": "qw-proper-3",
+          "from": "pm",
+          "text": "I'll tell the CEO. This is going to be a fun conversation. 😐",
+          "delayMs": 2000
+        }
+      ]
+    },
+    {
+      "id": "qw-reduce-scope",
+      "label": "Reduce scope",
+      "subtext": "Ship the core feature only. Cut the rest.",
+      "tagline": "Found the middle path. Nobody was thrilled.",
+      "metricDeltas": [
+        { "metric": "userSatisfaction", "delta": 5, "hidden": false },
+        { "metric": "techDebt", "delta": 8, "hidden": true },
+        { "metric": "maintainability", "delta": 5, "hidden": false }
+      ],
+      "followUpMessages": [
+        {
+          "id": "qw-scope-1",
+          "from": "pm",
+          "text": "Smart. I'll reset stakeholder expectations. Less impressive but real.",
+          "delayMs": 1000
+        },
+        {
+          "id": "qw-scope-2",
+          "from": "designer",
+          "text": "I can finish the core screens today. The edge case screens can wait. 👍",
+          "delayMs": 1800
+        },
+        {
+          "id": "qw-scope-3",
+          "from": "engineer",
+          "text": "This I can actually build properly. Mostly.",
+          "delayMs": 1600
+        }
+      ]
+    }
+  ]
+}
